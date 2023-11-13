@@ -21,7 +21,7 @@ public class VehicleService {
 	private VehicleDao vehicleDao;
 	@Autowired
 	private UserDao userDao;
-	public ResponseEntity<ResponseStructure<Vehicle>> saveVehicle(Vehicle vehicle, int uid) {
+	public ResponseEntity<ResponseStructure<Vehicle>> saveVehicle( Vehicle vehicle,int uid) {
 		   User user=userDao.getUserById(uid);
 		   if(user!=null)
 		   {

@@ -28,7 +28,7 @@ public class UserController {
 		return service.saveUser(user);
 	}
 	
-	@GetMapping("user/{id}")
+	@GetMapping("getuser/{id}")
 	public ResponseEntity<ResponseStructure<User>> getUserById(@PathVariable int id)
 	{
 		return service.getUserById(id);
@@ -52,7 +52,7 @@ public class UserController {
 	}
 	
 	@GetMapping("user/{role}")
-	public ResponseEntity<ResponseStructure<List<User>>> getUserByRole(String role)
+	public ResponseEntity<ResponseStructure<List<User>>> getUserByRole(@PathVariable String role)
 	{
 		return service.getByRole(role);
 	}
