@@ -1,6 +1,7 @@
 package com.ty.izgoproject.config;
 
 import java.util.Properties;
+import java.util.TreeSet;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
@@ -15,6 +16,7 @@ public class EmailConfig {
 
 	public boolean sendEmail(String to, String from,String password, String subject, String text) {
 		boolean flag = false;
+		
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", true);
 		properties.put("mail.smtp.starttls.enable", true);

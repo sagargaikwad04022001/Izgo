@@ -22,7 +22,7 @@ import com.ty.izgoproject.service.VehicleService;
 public class VehicleController {
 	@Autowired
 	private VehicleService vehicleService;
-	@PostMapping("/saveVehicle/{u_id}")
+	@PostMapping("/{u_id}")
 	public ResponseEntity<ResponseStructure<Vehicle>> saveVehicle(@PathVariable int u_id, @RequestBody Vehicle vehicle){
 		return vehicleService.saveVehicle(vehicle, u_id);
 	}

@@ -37,16 +37,11 @@ public class BookingService {
 			booking.setUser(customer);
 			Vehicle vehicle=dao3.findVehicleById(vid);
 			if(vehicle!=null)
-			{
-				
-				User vehicalOwner = vehicle.getUser();
-				
+			{				
+				User vehicalOwner = vehicle.getUser();				
 				booking.setVehicle(vehicle);
-				dao.saveBooking(booking);
-				
-				new EmailConfig().sendEmail(customer.getEmail(), vehicalOwner.getEmail(), vehicalOwner.getPassword(), "Booking Request", "I want your car on rent you can contact me on "+ customer.getPhone());
-				
-				
+				dao.saveBooking(booking);				
+				new EmailConfig().sendEmail( vehicalOwner.getEmail(),customer.getEmail(), customer.getPassword(), "Booking Request", "I want your car on rent you can contact me on "+ customer.getPhone());				
 				return new ResponseEntity<ResponseStructure<Booking>>(new ResponseStructure("Data Saved", HttpStatus.CREATED.value(), booking), HttpStatus.CREATED);
 			}
 			throw new IdNotFoundException("Vehicle id "+vid+" not exist in database");
