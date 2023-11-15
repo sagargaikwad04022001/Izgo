@@ -58,4 +58,6 @@ public class UserDao {
 		List<User> user=repository.findByRole(role2);
 		return user;
 	}
+
+	
 }
